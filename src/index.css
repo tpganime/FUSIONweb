@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", sans-serif;
+  
+  --color-bg: #ffffff;
+  --color-text: #1d1d1f;
+  --color-text-sub: #424245;
+  --color-accent: #0071e3;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-[--color-text] font-sans antialiased overflow-x-hidden;
+  }
+}
+
+.vibrant-bg {
+  @apply bg-[#fbfbfd];
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+.dark-glass {
+  background: rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+}
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.hero-heading {
+  @apply text-[--color-text] font-bold tracking-tight;
+}
+
+.status-badge {
+  @apply text-[11px] bg-[rgba(0,113,227,0.15)] text-[--color-accent] px-[12px] py-[5px] rounded-[14px] font-bold inline-block mb-4;
+}
+
+.btn-apple {
+  @apply inline-block px-8 py-3 rounded-full bg-[#0071e3] text-white no-underline text-sm font-bold transition-all hover:bg-[#0077ed] hover:shadow-[0_0_20px_rgba(0,113,227,0.4)] active:scale-95 shadow-lg;
+}
+
+.btn-apple-secondary {
+  @apply inline-block px-8 py-3 rounded-full bg-white text-[#0071e3] border border-gray-200 no-underline text-sm font-bold transition-all hover:bg-gray-50 hover:border-gray-300 active:scale-95 shadow-md;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}

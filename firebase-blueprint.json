@@ -1,0 +1,61 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile and build tracking",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "buildCount": { "type": "number", "description": "Number of builds used today" },
+        "lastBuildDate": { "type": "string", "format": "date", "description": "Date of the last build for reset logic" }
+      },
+      "required": ["uid", "email"]
+    },
+    "websites": {
+      "title": "Website",
+      "description": "Stores generated website code and history",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Owner UID" },
+        "businessName": { "type": "string" },
+        "prompt": { "type": "string" },
+        "html": { "type": "string" },
+        "history": { "type": "array", "items": { "type": "string" }, "description": "Previous HTML versions for restore points" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "businessName", "html"]
+    },
+    "bills": {
+      "title": "Bill",
+      "description": "Records of AI service purchases",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "billId": { "type": "string" },
+        "businessName": { "type": "string" },
+        "amount": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "paid"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "details": { "type": "string" }
+      },
+      "required": ["uid", "billId", "amount", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profiles"
+    },
+    "/websites/{websiteId}": {
+      "schema": "websites",
+      "description": "Generated website data"
+    },
+    "/bills/{billId}": {
+      "schema": "bills",
+      "description": "Purchase records"
+    }
+  }
+}
